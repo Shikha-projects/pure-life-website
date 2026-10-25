@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pure Life Inc. | Science-Backed Functional Nutrition & Nutrio Bars</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Top Announcement Bar -->
+    <div class="announcement-bar">
+        <span>🌱 Free Shipping & Free Eco-Shaker on Subscriptions over $35!</span>
+    </div>
+
+    <!-- Navigation Header -->
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="#" class="brand-logo">Pure Life<span>.</span></a>
+            <button class="menu-toggle" id="mobile-menu-btn" aria-label="Toggle Mobile Menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <nav class="nav-links" id="nav-menu">
+                <a href="#about">About Pure Life</a>
+                <a href="#builder">Build Your Box</a>
+                <a href="#pricing">Pricing Plans</a>
+                <a href="#science">R&D & Compliance</a>
+                <a href="#faq">FAQ</a>
+                <button id="theme-toggle-btn" class="theme-btn" aria-label="Toggle Theme">🌙</button>
+                <button class="cart-trigger-btn" id="open-cart-btn">
+                    Cart (<span id="cart-count">0</span>)
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-container">
+            <div class="hero-badge">Science-Backed Functional Nutrition</div>
+            <h1>Engineered to Close Your Daily Nutritional Gap</h1>
+            <p>Nutrio is a shelf-stable, organic whole-food matrix formulated with micro-encapsulated nutrients, bioavailable vitamins, and clinically studied adaptogens for peak cognitive and metabolic performance.</p>
+            <div class="hero-ctas">
+                <a href="#builder" class="btn btn-primary">Build 12-Pack Box</a>
+                <a href="#pricing" class="btn btn-outline">View Subscription Pricing</a>
+            </div>
+            <div class="hero-guarantees">
+                <span>✓ Gluten-Free</span>
+                <span>✓ Soy-Free</span>
+                <span>✓ Dairy-Free</span>
+                <span>✓ 100% Vegan</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Custom Box Builder Section -->
+    <section class="builder-section" id="builder">
+        <div class="container">
+            <div class="section-header">
+                <h2>Build Your Custom 12-Pack Box</h2>
+                <p>Select your favorite Nutrio functional bar variants to optimize your daily micro- and macronutrients.</p>
+            </div>
+
+            <!-- Option Switcher (Subscription vs One-Time) -->
+            <div class="purchase-type-toggle">
+                <button class="toggle-option active" id="btn-subscribe" onclick="setPurchaseType('sub')">
+                    <strong>Subscribe & Save 15%</strong>
+                    <div class="toggle-price">$37.99 / box ($3.16 / bar)</div>
+                </button>
+                <button class="toggle-option" id="btn-onetime" onclick="setPurchaseType('once')">
+                    <strong>One-Time Purchase</strong>
+                    <div class="toggle-price">$44.99 / box ($3.74 / bar)</div>
+                </button>
+            </div>
+
+            <!-- Box Counter Progress Bar -->
+            <div class="box-progress-wrapper">
+                <div class="progress-labels">
+                    <span>Box Progress: <strong id="box-count-text">0 / 12 Bars</strong></span>
+                    <span id="box-status-tag" class="badge-status">Select 12 bars to complete box</span>
+                </div>
+                <div class="progress-bar-bg">
+                    <div class="progress-bar-fill" id="box-progress-fill" style="width: 0%;"></div>
+                </div>
+            </div>
+
+            <!-- Product Cards Grid -->
+            <div class="flavors-grid">
+                <!-- Flavor Card 1 -->
+                <div class="card flavor-card">
+                    <span class="flavor-badge">Best Seller</span>
+                    <h3>Nutrio Vanilla Bean</h3>
+                    <p class="flavor-desc">Smooth organic vanilla infused with Ashwagandha & Lion's Mane for steady mental focus and calm energy.</p>
+                    <div class="flavor-meta">
+                        <span>100% Organic</span>
+                        <span class="unit-price-display">$3.16 / bar</span>
+                    </div>
+                    <div class="qty-selector">
+                        <button class="qty-btn" onclick="updateFlavorQty('vanilla', -1)">-</button>
+                        <span class="qty-val" id="qty-vanilla">0</span>
+                        <button class="qty-btn" onclick="updateFlavorQty('vanilla', 1)">+</button>
+                    </div>
+                </div>
+
+                <!-- Flavor Card 2 -->
+                <div class="card flavor-card">
+                    <span class="flavor-badge">Popular</span>
+                    <h3>Nutrio Dark Cacao</h3>
+                    <p class="flavor-desc">Rich raw cacao loaded with antioxidants, metabolic co-factors, and essential minerals for sustained fuel.</p>
+                    <div class="flavor-meta">
+                        <span>100% Organic</span>
+                        <span class="unit-price-display">$3.16 / bar</span>
+                    </div>
+                    <div class="qty-selector">
+                        <button class="qty-btn" onclick="updateFlavorQty('cacao', -1)">-</button>
+                        <span class="qty-val" id="qty-cacao">0</span>
+                        <button class="qty-btn" onclick="updateFlavorQty('cacao', 1)">+</button>
+                    </div>
+                </div>
+
+                <!-- Flavor Card 3 -->
+                <div class="card flavor-card">
+                    <span class="flavor-badge">Recovery</span>
+                    <h3>Nutrio Berries & Cream</h3>
+                    <p class="flavor-desc">Antioxidant-dense organic berry blend formulated for metabolic balance, cellular health, and recovery.</p>
+                    <div class="flavor-meta">
+                        <span>100% Organic</span>
+                        <span class="unit-price-display">$3.16 / bar</span>
+                    </div>
+                    <div class="qty-selector">
+                        <button class="qty-btn" onclick="updateFlavorQty('berries', -1)">-</button>
+                        <span class="qty-val" id="qty-berries">0</span>
+                        <button class="qty-btn" onclick="updateFlavorQty('berries', 1)">+</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Add Box To Cart CTA -->
+            <div class="builder-action">
+                <button class="btn btn-primary btn-large" id="add-box-btn" disabled onclick="addBoxToCart()">
+                    Add 12-Pack Box to Cart - <span id="builder-total-price">$37.99</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Structure Section -->
+    <section class="pricing-section" id="pricing">
+        <div class="container">
+            <div class="section-header">
+                <h2>Transparent Product Pricing</h2>
+                <p>Calibrated pricing designed for high customer value and direct access to premium functional foods.</p>
+            </div>
+            <div class="pricing-grid">
+                <div class="card pricing-card">
+                    <h3>Single Pack</h3>
+                    <div class="price-amount">$3.99 <span>/ unit</span></div>
+                    <p class="price-sub">Retail MSRP Sample</p>
+                    <ul class="price-features">
+                        <li>1x Ready-to-use functional bar</li>
+                        <li>Organic whole-food nutrients</li>
+                        <li>Ideal for quick trial & on-the-go</li>
+                    </ul>
+                    <button class="btn btn-outline" onclick="addSinglePackToCart()">Add Single Pack ($3.99)</button>
+                </div>
+
+                <div class="card pricing-card featured">
+                    <span class="popular-tag">Most Popular</span>
+                    <h3>Monthly Subscription</h3>
+                    <div class="price-amount">$37.99 <span>/ month</span></div>
+                    <p class="price-sub">Direct-to-Consumer (15% Discount)</p>
+                    <ul class="price-features">
+                        <li>12-Pack custom box delivered monthly</li>
+                        <li>$3.16 per unit (Save $7.00/box)</li>
+                        <li>Free shipping & flexible cancellation</li>
+                        <li>Free Eco-Shaker in first box</li>
+                    </ul>
+                    <a href="#builder" class="btn btn-primary">Subscribe & Save 15%</a>
+                </div>
+
+                <div class="card pricing-card">
+                    <h3>12-Pack Box</h3>
+                    <div class="price-amount">$44.99 <span>/ box</span></div>
+                    <p class="price-sub">One-Time Purchase</p>
+                    <ul class="price-features">
+                        <li>12 Functional bars of your choice</li>
+                        <li>$3.74 per unit</li>
+                        <li>Complete daily nutrient coverage</li>
+                    </ul>
+                    <a href="#builder" class="btn btn-outline">Order 12-Pack Box</a>
+                </div>
+
+                <div class="card pricing-card">
+                    <h3>Wholesale Bulk</h3>
+                    <div class="price-amount">$2.10 <span>/ unit</span></div>
+                    <p class="price-sub">Retail Partners (MOQ: 500 units)</p>
+                    <ul class="price-features">
+                        <li>Authorized CPG retail distribution</li>
+                        <li>Bulk co-packing delivery</li>
+                        <li>High retail margin potential</li>
+                    </ul>
+                    <button class="btn btn-outline" onclick="openModal('Wholesale Purchasing', 'For corporate or retail wholesale inquiries (MOQ 500 units at $2.10/unit), please contact our partner sales team at sales@purelifeinc.com.')">Inquire Wholesale</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Pure Life Inc. Section -->
+    <section class="about-section" id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-content">
+                    <h2>Empowering Daily Performance & Health</h2>
+                    <p>Pure Life Inc. is an innovative health and wellness enterprise dedicated to revolutionizing daily human nutrition through science-backed, uncompromised functional foods.</p>
+                    <p>Our flagship product, <strong>Nutrio</strong>, was engineered to close the nutritional gap experienced by busy urban professionals, active lifestyle enthusiasts, and health-conscious families without relying on synthetic fillers, artificial preservatives, or excessive sugars.</p>
+                    <div class="moats-list">
+                        <div class="moat-item">
+                            <h4>Proprietary Bio-Absorbable Formulation</h4>
+                            <p>Features micro-encapsulated organic whole-food ingredients ensuring optimal bioavailability compared to standard synthetic enrichment.</p>
+                        </div>
+                        <div class="moat-item">
+                            <h4>Clean-Label Transparency</h4>
+                            <p>Complete supply-chain traceability from organic farming partners to final shelf-stable processing.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Science, R&D & Compliance Section -->
+    <section class="science-section" id="science">
+        <div class="container">
+            <div class="section-header">
+                <h2>R&D & Strict Regulatory Compliance</h2>
+                <p>Pure Life Inc. adheres strictly to federal standards governing functional foods and dietary health.</p>
+            </div>
+            <div class="science-grid">
+                <div class="card science-card">
+                    <h3>U.S. FDA Compliance</h3>
+                    <p>Strict adherence to the Food Safety Modernization Act (FSMA) and current Good Manufacturing Practices (cGMP) under 21 CFR Part 117.</p>
+                </div>
+                <div class="card science-card">
+                    <h3>Certified Organic & Non-GMO</h3>
+                    <p>Formal certification frameworks governing raw material procurement, processing, and allergen-free safety.</p>
+                </div>
+                <div class="card science-card">
+                    <h3>FTC Marketing Standards</h3>
+                    <p>Rigorous adherence to Federal Trade Commission guidelines regarding validated health benefit and structure/function claims.</p>
+                </div>
+                <div class="card science-card">
+                    <h3>Continuous Innovation</h3>
+                    <p>Ongoing R&D focused on bio-absorbable plant systems, natural antioxidant shelf-life extension, and clinical ingredient validation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Accordion Section -->
+    <section class="faq-section" id="faq">
+        <div class="container">
+            <div class="section-header">
+                <h2>Frequently Asked Questions</h2>
+                <p>Everything you need to know about Nutrio functional bars and Pure Life Inc.</p>
+            </div>
+            <div class="faq-accordion">
+                <div class="faq-item">
+                    <button class="faq-question">What makes Nutrio different from standard nutritional bars? <span class="faq-icon">+</span></button>
+                    <div class="faq-answer">
+                        <p>Nutrio uses 100% organic whole foods combined with micro-encapsulated vitamins and adaptogens like Ashwagandha and Lion's Mane. We avoid synthetic fillers, sugar alcohols, and artificial preservatives, giving you clean, bioavailable fuel.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">How does the monthly subscription work? <span class="faq-icon">+</span></button>
+                    <div class="faq-answer">
+                        <p>Our monthly subscription delivers a custom 12-pack box to your door for $37.99/month (a 15% discount off the $44.99 retail price). You can pause, modify flavor selections, or cancel anytime from your account settings.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">Is Nutrio certified allergen-free? <span class="faq-icon">+</span></button>
+                    <div class="faq-answer">
+                        <p>Yes. Nutrio is certified Gluten-Free, Soy-Free, Dairy-Free, and 100% Vegan to fit seamless dietary preferences across health-conscious families and athletes.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-col">
+                <a href="#" class="brand-logo footer-logo">Pure Life<span>.</span></a>
+                <p>Empowering individuals to achieve optimal daily health and cognitive performance through science-backed functional nutrition.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Product Line</h4>
+                <ul>
+                    <li><a href="#builder">Nutrio Vanilla Bean</a></li>
+                    <li><a href="#builder">Nutrio Dark Cacao</a></li>
+                    <li><a href="#builder">Nutrio Berries & Cream</a></li>
+                    <li><a href="#pricing">Subscription Plan</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Quality Standards</h4>
+                <ul>
+                    <li>FDA cGMP 21 CFR Part 117</li>
+                    <li>USDA Organic Certified</li>
+                    <li>Non-GMO Project Verified</li>
+                    <li>FTC Standards Compliant</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Pure Life Inc. All rights reserved. Nutrio is a registered trademark.</p>
+        </div>
+    </footer>
+
+    <!-- Slide-Out Drawer Cart -->
+    <div class="cart-overlay" id="cart-overlay" onclick="closeCart()"></div>
+    <div class="cart-drawer" id="cart-drawer">
+        <div class="cart-header">
+            <h3>Your Cart</h3>
+            <button class="cart-close" onclick="closeCart()">&times;</button>
+        </div>
+        <div class="cart-body">
+            <!-- Free Gift/Shipping Progress Bar inside Cart -->
+            <div class="cart-shipping-banner">
+                <span id="cart-shipping-msg">Add items to unlock Free Shipping!</span>
+                <div class="progress-bar-bg" style="height: 6px; margin-top: 6px;">
+                    <div class="progress-bar-fill" id="cart-shipping-fill" style="width: 0%;"></div>
+                </div>
+            </div>
+            <div id="cart-items-list" class="cart-items-list">
+                <p class="empty-cart-text">Your cart is currently empty.</p>
+            </div>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total-row">
+                <span>Subtotal</span>
+                <strong id="cart-subtotal">$0.00</strong>
+            </div>
+            <button class="btn btn-primary btn-full" onclick="checkout()">Proceed to Checkout</button>
+        </div>
+    </div>
+
+    <!-- Generic Alert Modal -->
+    <div class="modal" id="info-modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal()">&times;</span>
+            <h3 id="modal-title">Notification</h3>
+            <p id="modal-body">Information displayed here.</p>
+            <button class="btn btn-primary" style="margin-top: 1.5rem;" onclick="closeModal()">Close</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
