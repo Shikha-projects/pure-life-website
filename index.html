@@ -16,7 +16,9 @@
     <!-- Navigation Header -->
     <header class="navbar">
         <div class="nav-container">
-            <a href="#" class="brand-logo">Pure Life<span>.</span></a>
+            <a href="#" class="brand-logo">
+                <img src="Images/logo.jpg" alt="Pure Life Logo" class="site-logo">
+            </a>
             <button class="menu-toggle" id="mobile-menu-btn" aria-label="Toggle Mobile Menu">
                 <span class="bar"></span>
                 <span class="bar"></span>
@@ -38,19 +40,24 @@
 
     <!-- Hero Section -->
     <section class="hero-section">
-        <div class="hero-container">
-            <div class="hero-badge">Science-Backed Functional Nutrition</div>
-            <h1>Engineered to Close Your Daily Nutritional Gap</h1>
-            <p>Nutrio is a shelf-stable, organic whole-food matrix formulated with micro-encapsulated nutrients, bioavailable vitamins, and clinically studied adaptogens for peak cognitive and metabolic performance.</p>
-            <div class="hero-ctas">
-                <a href="#builder" class="btn btn-primary">Build 12-Pack Box</a>
-                <a href="#pricing" class="btn btn-outline">View Subscription Pricing</a>
+        <div class="container hero-grid">
+            <div class="hero-content">
+                <div class="hero-badge">Science-Backed Functional Nutrition</div>
+                <h1>Engineered to Close Your Daily Nutritional Gap</h1>
+                <p>Nutrio is a shelf-stable, organic whole-food matrix formulated with micro-encapsulated nutrients, bioavailable vitamins, and clinically studied adaptogens for peak cognitive and metabolic performance.</p>
+                <div class="hero-ctas">
+                    <a href="#builder" class="btn btn-primary">Build 12-Pack Box</a>
+                    <a href="#pricing" class="btn btn-outline">View Subscription Pricing</a>
+                </div>
+                <div class="hero-guarantees">
+                    <span>✓ Gluten-Free</span>
+                    <span>✓ Soy-Free</span>
+                    <span>✓ Dairy-Free</span>
+                    <span>✓ 100% Vegan</span>
+                </div>
             </div>
-            <div class="hero-guarantees">
-                <span>✓ Gluten-Free</span>
-                <span>✓ Soy-Free</span>
-                <span>✓ Dairy-Free</span>
-                <span>✓ 100% Vegan</span>
+            <div class="hero-media">
+                <img src="Images/hero-box.jpg" alt="Nutrio 12-Pack Functional Nutrition Box and Ingredients" class="hero-img">
             </div>
         </div>
     </section>
@@ -91,6 +98,9 @@
                 <!-- Flavor Card 1 -->
                 <div class="card flavor-card">
                     <span class="flavor-badge">Best Seller</span>
+                    <div class="flavor-img-wrap">
+                        <img src="Images/vanilla-bean.jpg" alt="Nutrio Vanilla Bean Organic Functional Bar" class="flavor-img" loading="lazy">
+                    </div>
                     <h3>Nutrio Vanilla Bean</h3>
                     <p class="flavor-desc">Smooth organic vanilla infused with Ashwagandha & Lion's Mane for steady mental focus and calm energy.</p>
                     <div class="flavor-meta">
@@ -107,6 +117,9 @@
                 <!-- Flavor Card 2 -->
                 <div class="card flavor-card">
                     <span class="flavor-badge">Popular</span>
+                    <div class="flavor-img-wrap">
+                        <img src="Images/dark-cacao.jpg" alt="Nutrio Dark Cacao Organic Functional Bar" class="flavor-img" loading="lazy">
+                    </div>
                     <h3>Nutrio Dark Cacao</h3>
                     <p class="flavor-desc">Rich raw cacao loaded with antioxidants, metabolic co-factors, and essential minerals for sustained fuel.</p>
                     <div class="flavor-meta">
@@ -123,6 +136,9 @@
                 <!-- Flavor Card 3 -->
                 <div class="card flavor-card">
                     <span class="flavor-badge">Recovery</span>
+                    <div class="flavor-img-wrap">
+                        <img src="Images/berries-cream.jpg" alt="Nutrio Berries and Cream Organic Functional Bar" class="flavor-img" loading="lazy">
+                    </div>
                     <h3>Nutrio Berries & Cream</h3>
                     <p class="flavor-desc">Antioxidant-dense organic berry blend formulated for metabolic balance, cellular health, and recovery.</p>
                     <div class="flavor-meta">
@@ -196,6 +212,7 @@
                     <h3>Wholesale Bulk</h3>
                     <div class="price-amount">$2.10 <span>/ unit</span></div>
                     <p class="price-sub">Retail Partners (MOQ: 500 units)</p>
+                    <img src="Images/wholesale-box.jpg" alt="Nutrio Retail Countertop Display Box" class="wholesale-img" loading="lazy">
                     <ul class="price-features">
                         <li>Authorized CPG retail distribution</li>
                         <li>Bulk co-packing delivery</li>
@@ -225,6 +242,18 @@
                             <p>Complete supply-chain traceability from organic farming partners to final shelf-stable processing.</p>
                         </div>
                     </div>
+                </div>
+
+                <!-- Team & Target Customer Lifestyle Gallery -->
+                <div class="about-gallery">
+                    <figure class="about-card">
+                        <img src="Images/team.jpg" alt="Pure Life Food Scientists and Nutritionists Team" loading="lazy">
+                        <figcaption>Our multidisciplinary R&D food scientists and wellness nutritionists.</figcaption>
+                    </figure>
+                    <figure class="about-card">
+                        <img src="Images/lifestyle.jpg" alt="Urban professional commuting with a Nutrio bar" loading="lazy">
+                        <figcaption>Clean, bioavailable cognitive fuel built for busy daily routines.</figcaption>
+                    </figure>
                 </div>
             </div>
         </div>
@@ -358,7 +387,7 @@
     </div>
 
     <script src="script.js"></script>
-    <script type="text/javascript">
+<script type="text/javascript">
   (function(d, t) {
       var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
       v.onload = function() {
